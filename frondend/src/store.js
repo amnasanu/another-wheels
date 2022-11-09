@@ -1,10 +1,11 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import thunk from 'redux-thunk'
-import { productListReducers } from './reducers/productReducers'
+import { productListReducers, productDetailsReducer } from './reducers/productReducers'
 
 
 const reducer = combineReducers({
     productList :productListReducers,
+    productDetails :productDetailsReducer,
 });
 const initialState = {};
 

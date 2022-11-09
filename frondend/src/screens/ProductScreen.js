@@ -2,20 +2,21 @@ import React, {useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Row, Col, Image, ListGroup,Button,Card} from 'react-bootstrap'
 import Rating from '../components/Rating'
-import axios from 'axios'
+import { useDispatch,useSelector } from 'react-redux'
+import { listProductDetails } from '../actions/productActions'
 
 
-function ProductScreen({ match }) {
-  const [product, setProduct] = useState([])
-  const { id } = useParams();
+
+function ProductScreen() {
+  const dispatch = useDispatch()
+  const productDetails = useSelector(state => state.productDetails)
+  const {loading, error, product} = productDetails
+  const match = useParams()
 
   useEffect( () => {
-    async function fetchProduct(){
-    const { data } = await axios.get(`/api/products/${id}`)
-    setProduct(data)
-    }
-    fetchProduct()
+    dispatch(listProductDetails(match.id))
   },[])
+
   return (
     <div>
       <Link to='/' className='btn btn-light my-3'>Go Back</Link>
