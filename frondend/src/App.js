@@ -13,15 +13,16 @@ function App() {
       <main className="py-3">
         <Container>
           <Routes>
-            <Route index path='/' element ={<HomeScreen />}/>
-            <Route path = '/product/:id' element={<ProductScreen />} />
-            <Route path = '/cart/:id?' element={<CartScreen en/>} />
+            <Route index path='/' element={<HomeScreen />} />
+            <Route path='/product/:id' element={<ProductScreen />} />
+            <Route path='/cart/:id' element={<CartScreen en />} />
+            <Route path='/cart' element={<CartScreen en />} />
           </Routes>
         </Container>
       </main>
       <Footer />
     </Router>
   );
-}        
+}
 
 export default App;     

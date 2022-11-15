@@ -9,3 +9,12 @@ h3{
     margin:0.1rem;
 
 }
+
+.img{
+    width: 100ch;
+}
+
+.productImage{
+    width: 100%;
+    height: 200px;
+}
