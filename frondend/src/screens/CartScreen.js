@@ -14,11 +14,11 @@ function CartScreen({location,history})
   const [searchParams,setSearchParams]=useSearchParams()
   const qty=searchParams.get('qty')
 
+
  
   const dispatch = useDispatch()
   const cart = useSelector(state => state.cart)
   const {cartItems} = cart
-  console.log(cartItems)
 
   useEffect(() => {
     if(productID) {
@@ -54,6 +54,7 @@ function CartScreen({location,history})
                     </Col>
                     <Col md={2}>
                       ${item.price}
+                      {console.log(item.qty)}
                     </Col>
                     <Col md={3}>
                     <Form.Control
