@@ -5,7 +5,8 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 import Loader from '../components/Loadar'
 import Message from '../components/Messages'
 import FormContainer from '../components/FormContainer'
-import { getUserDetails } from '../actions/userAction'
+import { getUserDetails , updateUserDetails} from '../actions/userAction'
+import { USER_UPDATE_PROFILE_RESET  } from '../constants/userConstants'
 
 function ProfileScreen({history}) {
     const [name,setName] = useState('')
@@ -23,18 +24,22 @@ function ProfileScreen({history}) {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo} = userLogin
 
+    const userUpdateProfile = useSelector(state => state.userUpdateProfile)
+    const { success } = userUpdateProfile
+
     useEffect(()=>{
         if(! userInfo){
             navigate('/login')
         }else{
-            if(!user || !user.name){
+            if(!user || !user.name ||success){
+                dispatch({type:USER_UPDATE_PROFILE_RESET})
                 dispatch(getUserDetails('profile'))
             }else{
                 setName(user.name)
                 setEmail(user.email)
             }
         }
-    },[dispatch, history, userInfo, user])
+    },[dispatch, history, userInfo, user,success])
 
 
     const submitHandler = (e) => {
@@ -43,7 +48,13 @@ function ProfileScreen({history}) {
         if (password !== confirmPassword){
             setMessage('Passwords does not match')
         }else{
-            console.log("Updating ..")
+            dispatch(updateUserDetails({
+                'id':user._id,
+                'name':name,
+                'email':email,
+                'password':password,
+            }))
+            setMessage('')
         }
     }
   return (
