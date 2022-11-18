@@ -30,8 +30,7 @@ function CartScreen({location,history})
     dispatch(removeFromCart(id))
   }
   const checkoutHandler= () =>{
-    navigate(`/login?redirect=shipping`)
-    // history.push('/login?redirect=shipping')
+    navigate('/login?redirect=/shipping')
   }
   return (
       <Row>

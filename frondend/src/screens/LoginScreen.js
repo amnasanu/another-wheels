@@ -31,6 +31,7 @@ function LoginScreen({ history}) {
         e.preventDefault()
         dispatch(login(email, password))
     }
+    
   return (
     <FormContainer>
         <h1>Sign In</h1>
