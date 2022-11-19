@@ -45,7 +45,7 @@ def addOrderItems(request):
                 price = i['price'],
                 image = product.image.url
             )
-            product.countInStock -= item.qty
+            product.countInStock -= int(item.qty)
             product.save()
     serializer = OrderSerializer(order, many = False )
     return Response(serializer.data)

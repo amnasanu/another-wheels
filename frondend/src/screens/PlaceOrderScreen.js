@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom'
 import Message from '../components/Messages'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
+import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 
 function PlaceOrderScreen({history}) {
 
     const orderCreate = useSelector(state =>state.orderCreate)
     const {order, error, success} = orderCreate
+    const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     cart.itemsPrice = cart.cartItems.reduce((acc, item)=> acc + item.price * item.qty, 0).toFixed(2)
     cart.shippingPrice = (cart.itemsPrice > 100 ? 0 :10).toFixed(2)
@@ -27,22 +29,33 @@ function PlaceOrderScreen({history}) {
     useEffect(() =>{
         if(success){
             navigate(`/order/${order._id}`)
+            dispatch({type: ORDER_CREATE_RESET})
         }
     },[success, history])
 
 
-    const placeOrder= ()=>{
-        const dispatch = useDispatch
+    const placeOrder = () => {
+
         dispatch(createOrder({
+
             orderItems:cart.cartItems,
+
             shippingAddress:cart.shippingAddress,
-            paymentMethod : cart.paymentMethod,
+
+            paymentMethod:cart.paymentMethod,
+
             itemsPrice:cart.itemsPrice,
+
             shippingPrice:cart.shippingPrice,
+
             taxPrice:cart.taxPrice,
-            totalPrice:cart.totalPrice,
-            
+
+            totalPrice:cart.totalPrice
+
+
+
         }))
+
     }
 
   return (
