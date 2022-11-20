@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Message from '../components/Messages'
 import Loader from '../components/Loadar'
 import { getOrderDetails } from '../actions/orderActions'
-
+//AZMBw2wZtkbESE_tcoP9w8wKrTsFZcNLAJN9kkD4K2CH-aiJ2mtzFUhG0Ss19V8B-f939OHqy68QqJ-v  = paypal client id
 function OrderScreen() {
     const dispatch = useDispatch()
     const params = useParams()
@@ -22,7 +22,7 @@ function OrderScreen() {
         if(!order || order._id !== Number(orderId)) {
             dispatch(getOrderDetails(orderId))
         }
-    }, [order, orderId])
+    }, [dispatch, order, orderId])
 
 
   return loading ? (<Loader/>) : error ?(<Message variant='danger'>{error}</Message>) : (
@@ -33,8 +33,14 @@ function OrderScreen() {
                 <ListGroup variant='flush'>
                     <ListGroup.Item>
                         <h2>Shipping</h2>
-                        
+                        {console.log(order.user)}
+                        {console.log(order.user.email)}
                         <p><strong>Name:</strong>{order.user.name} </p>
+                        <p><strong>Email:</strong><a href={`mailto:${order.user.email}`}>{order.user.email}</a></p>
+
+                        {order.isDelivered ? (<Message vaiant = 'success'>Delivered on {order.deliveredAt}</Message>) 
+                        :(<Message variant='warning'>Not Delivered</Message>)}
+
                         <p>
                             <strong>Shipping :</strong>
                            
@@ -52,6 +58,8 @@ function OrderScreen() {
                             <strong>Method :</strong>
                             {order.paymentMethod}
                         </p>
+                        {order.isPaid ? (<Message vaiant = 'success'>Paid on {order.paidAt}</Message>) 
+                        :(<Message variant='warning'>Not Paid</Message>)}
                     </ListGroup.Item>
 
                     <ListGroup.Item>
