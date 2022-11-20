@@ -1,0 +1,155 @@
+[33mcommit 82f6b548664eb5187bed9bbe00f4d3b1157db57d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Sun Nov 20 15:37:12 2022 +0530
+
+    update models
+
+[33mcommit a047ff8d4a7252cc8d87e60f47ed0bbb9cf25f7d[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Sat Nov 19 21:41:54 2022 +0530
+
+    find some problem
+
+[33mcommit 46e14ba927e345a7aaeb444df9114c37f2f3a1e5[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Sat Nov 19 15:54:24 2022 +0530
+
+    Add Checkout Process
+
+[33mcommit 756e8c7afd3b808127a53e937a652ab60563c2d5[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Sat Nov 19 13:02:51 2022 +0530
+
+    add new screens
+
+[33mcommit 1d1ca149e043ab08fd639967f664735d4583043f[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Fri Nov 18 15:44:03 2022 +0530
+
+    solve shopping issus
+
+[33mcommit 4a8ae33fea35e0c8d7477e4f2b31061f3ccee16d[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Fri Nov 18 14:45:35 2022 +0530
+
+    complete profile updation
+
+[33mcommit 5832a3a5bb23199f1caec7edc1bfcee13bbb2ecf[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Fri Nov 18 00:53:31 2022 +0530
+
+    add profiel sttings
+
+[33mcommit 8d86dcfa2f73fd82515c232060493d11bb71f5a0[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Thu Nov 17 22:02:59 2022 +0530
+
+    add profile updation serializer
+
+[33mcommit 3124a9af8c88d57f7802954a3c2ac86b183909f8[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Thu Nov 17 21:14:42 2022 +0530
+
+    add register
+
+[33mcommit aecd6ad84f0898379f631800919f68188513119e[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Thu Nov 17 03:22:38 2022 +0530
+
+    add logout
+
+[33mcommit f6ad6191a733ebad33a86fb3273e23b6f80aa38f[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Thu Nov 17 02:54:15 2022 +0530
+
+    add login
+
+[33mcommit 3019fb4ca49b689c9312ccd1f6b5547d8f833e98[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 16 19:53:22 2022 +0530
+
+    add folders for views and urls
+
+[33mcommit 54e60120ef76b0b7562817272ed3bff89ee33dcd[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 16 16:05:03 2022 +0530
+
+    remove routes functions
+
+[33mcommit 11ddd6f0cc8bc74f5c822ace1b812215acb00d88[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 16 15:41:16 2022 +0530
+
+    update JWT
+
+[33mcommit b74eddb483f4da1579b1bbd6ea7e1e95aec0da4e[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 16 14:28:25 2022 +0530
+
+    add JWT AUTHENTICATION in bacend
+
+[33mcommit e27c1b7fc81d3b66b0aaaac6c8f0174cf7f8b8bf[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 16 08:28:10 2022 +0530
+
+    solve qty
+
+[33mcommit e36d0216a78388dd6b9b88130de0bbe47f248ce5[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 16 08:16:56 2022 +0530
+
+    add add to cart
+
+[33mcommit 7000186d61b1e8c7f2f147b16fca18d891f00b3a[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Tue Nov 15 21:21:46 2022 +0530
+
+    add addtocart functions
+
+[33mcommit 39c4bb231ecea07c2e39a26ad297ff067785b56c[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Tue Nov 15 17:24:07 2022 +0530
+
+    updates
+
+[33mcommit 09bf1077c3b11467071845bea063e21142119300[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Thu Nov 10 18:18:34 2022 +0530
+
+    add newconstrain
+
+[33mcommit c938ecd1e41b8f35d05b7a5bb1d645feb3757e49[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Thu Nov 10 16:30:03 2022 +0530
+
+    add addcart function
+
+[33mcommit 7ce78c4b6bb39b2854ba5a23de03943aacf7c8a9[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 9 20:34:14 2022 +0530
+
+    update
+
+[33mcommit 6394ec341939b9e5b39b967057ed5113bf5ded90[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 9 20:15:59 2022 +0530
+
+    add productscreen loding
+
+[33mcommit b2475d1062b8986c99bfb993483902b79cd3f31c[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Wed Nov 9 20:00:40 2022 +0530
+
+    add reducers
+
+[33mcommit a24ae81fb052ca410ccd4f2c2b0597ff3fe37b52[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Tue Nov 8 18:38:26 2022 +0530
+
+    add products
+
+[33mcommit dea085913a12910655fbe5199391831f4e1648f8[m
+Author: amnasanu <amnasanu100@gmail.com>
+Date:   Mon Nov 7 13:47:53 2022 +0530
+
+    first commit
