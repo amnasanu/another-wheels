@@ -127,7 +127,7 @@ def updateOrderToDelivered(request, pk):
 def updateOrderToPaid(request,pk):
     order = Order.objects.get(_id = pk)
     order.is_paid = True
-    order.paidAt = datetime.now
+    order.paidAt = datetime.now()
     order.save()
 
     return Response('Order was paid')
