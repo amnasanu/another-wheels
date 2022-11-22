@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { Link, useLocation ,useNavigate,useParams } from 'react-router-dom'
+import { Link,  useNavigate,useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, } from 'react-bootstrap'
 import Loader from '../components/Loadar'
 import Message from '../components/Messages'
 import FormContainer from '../components/FormContainer'
-import { getUserDetails } from '../actions/userAction'
+import { getUserDetails , updateUser } from '../actions/userAction'
+import { USER_UPDATE_RESET } from '../constants/userConstants'
 
 function EditUserScreen() {
     const match = useParams();
@@ -14,29 +15,42 @@ function EditUserScreen() {
     const [email,setEmail] = useState('')
     const [isAdmin,setAdmin] = useState(false)
     const dispatch = useDispatch()
+    let navigate = useNavigate()
 
     
 
 
     const userDetails = useSelector(state => state.userDetails)
     const { error, user , loading} = userDetails
+
+    const userUpdate = useSelector(state => state.userUpdate)
+    const { error:errorUpdate, loading :loadingUpdate, success :successUpdate } = userUpdate
+
     console.log(user)
 
     useEffect(()=>{
-      if(! user.name || user._id !== Number(userId)){
-        dispatch(getUserDetails(userId))
-       }else{
-         setName(user.name)
-         setEmail(user.email)
-         setAdmin(user.isAdmin)
-       }
+      if(successUpdate) {
+        dispatch({type: USER_UPDATE_RESET})
+        navigate('/admin/userlist')
 
-      
-    },[dispatch, userId,user._id, user.email, user.isAdmin, user.name ])
+      }else{
+        // ? optional chaining
+        if(! user || user?._id !== Number(userId)){  
+          dispatch(getUserDetails(userId))
+         }else{
+           setName(user.name)
+           setEmail(user.email)
+           setAdmin(user.isAdmin)
+         }
+
+      }
+     
+    },[dispatch, userId,user, successUpdate, navigate ])
 
 
     const submitHandler = (e) => {
         e.preventDefault()
+        dispatch(updateUser({_id:user._id, name, email, isAdmin}))
     }
 
   return (

@@ -294,45 +294,50 @@ export const deleteUser=(id) => async (dispatch, getState)=>{
 }
 
 
-export const updateUser = (user) => async (dispatch, getState) => {
+export const updateUser=(user) => async (dispatch, getState)=>{
+
     try {
         dispatch({
-            type: USER_UPDATE_REQUEST
+            type :USER_UPDATE_REQUEST
         })
 
-        const {
-            userLogin: { userInfo },
+        const{
+            userLogin : { userInfo },
         } = getState()
 
-        const config = {
-            headers: {
-                'Content-type': 'application/json',
-                Authorization: `Bearer ${userInfo.token}`
-            }
-        }
 
-        const { data } = await axios.put(
-            `/api/users/update/${user._id}/`,
-            user,
-            config
-        )
+        const { data } = await axios
+        .create({
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+            'Content-Type': 'application/json',
+          },
+        })
+        .put(`/api/users/update/${user._id}/`)
 
+        
         dispatch({
-            type: USER_UPDATE_SUCCESS,
+            type:USER_UPDATE_SUCCESS,
+            
         })
 
         dispatch({
-            type: USER_DETAILS_SUCCESS,
-            payload: data
+            type:USER_DETAILS_SUCCESS,
+            payload :data
         })
 
 
-    } catch (error) {
+
+        
+    }catch(error){
         dispatch({
             type: USER_UPDATE_FAIL,
-            payload: error.response && error.response.data.detail
-                ? error.response.data.detail
-                : error.message,
+            payload :error.response && error.response.data.detail
+            ? error.response.data.detail
+            : error.message,
         })
+
     }
 }
+
+
