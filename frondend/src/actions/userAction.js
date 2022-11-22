@@ -307,13 +307,15 @@ export const updateUser=(user) => async (dispatch, getState)=>{
 
 
         const { data } = await axios
+
         .create({
           headers: {
             Authorization: `Bearer ${userInfo.token}`,
             'Content-Type': 'application/json',
           },
         })
-        .put(`/api/users/update/${user._id}/`)
+        .put(`/api/users/update/${user._id}/`,user)
+        
 
         
         dispatch({

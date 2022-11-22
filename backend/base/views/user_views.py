@@ -91,6 +91,7 @@ def updateUser(request,pk):
     user = User.objects.get(id=pk)
     data = request.data
     print("This si insdie the functin",data)
+    print(data)
     user.first_name = data['name']
     user.email = data['email']
     user.is_staff = data['isAdmin']
