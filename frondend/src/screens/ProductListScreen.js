@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 import Loader from '../components/Loadar'
 import Message from '../components/Messages'
-import { listProducts , deleteProduct} from '../actions/productActions'
+import { listProducts , deleteProduct , createProduct} from '../actions/productActions'
+import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 
 
 
@@ -22,6 +23,9 @@ function ProductListScreen() {
     const productDelete = useSelector(state => state.productDelete)
     const {loading:loadingDelete, error:errorDelete, success: successDelete} = productDelete
 
+    const productCreate = useSelector(state => state.productCreate)
+    const {loading:loadingCreate, error:errorCreate, success: successCreate, product:createdProduct} = productCreate
+
 
 
     const userLogin = useSelector(state => state.userLogin)
@@ -31,12 +35,16 @@ function ProductListScreen() {
 
 
     useEffect(() => {
-        if(userInfo && userInfo.isAdmin){
-            dispatch(listProducts())
+        dispatch({type : PRODUCT_CREATE_RESET})
+        if( !userInfo.isAdmin ){
+            navigate('/login') }
+
+        if(successCreate){
+            navigate(`/admin/product/${createdProduct._id}/edit`)
         }else{
-             navigate('/login')
+            dispatch(listProducts())
         }
-    },[dispatch ,userInfo , successDelete ])
+    },[dispatch ,userInfo , successDelete, successCreate, createdProduct ])
 
     const deleteHandler = (id) => {
 
@@ -46,7 +54,7 @@ function ProductListScreen() {
     }
 
     const createProductHandler = (product) =>{
-        //Create Product
+        dispatch(createProduct())
     }
 
   return (
@@ -63,6 +71,9 @@ function ProductListScreen() {
         </Row>
         {loadingDelete && <Loader/>}
         {errorDelete && <Message variant ='danger'>{errorDelete}</Message>}
+
+        {loadingCreate && <Loader/>}
+        {loadingCreate && <Message variant ='danger'>{loadingCreate}</Message>}
     {loading ? (<Loader />)
              :error 
                 ?(<Message variant='danger'>{error}</Message>)

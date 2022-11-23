@@ -9,7 +9,11 @@ import { PRODUCT_LIST_REQUEST,
 
          PRODUCT_DELETE_REQUEST,
          PRODUCT_DELETE_SUCCESS,
-         PRODUCT_DELETE_FAIL 
+         PRODUCT_DELETE_FAIL ,
+
+         PRODUCT_CREATE_REQUEST,
+         PRODUCT_CREATE_SUCCESS,
+         PRODUCT_CREATE_FAIL,
          } from '../constants/productConstants'
 
 
@@ -95,6 +99,49 @@ export const deleteProduct =(id) => async (dispatch, getState)=>{
     }catch(error){
         dispatch({
             type: PRODUCT_DELETE_FAIL,
+            payload :error.response && error.response.data.detail
+            ? error.response.data.detail
+            : error.message,
+        })
+
+    }
+}
+
+
+export const createProduct =() => async (dispatch, getState)=>{
+
+    try {
+        dispatch({
+            type :PRODUCT_CREATE_REQUEST,
+
+        })
+
+        const{
+            userLogin : { userInfo },
+        } = getState()
+
+
+        const { data } = await axios
+        .create({
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+            'Content-Type': 'application/json',
+          },
+        })
+        // console.log("inside the product delete function")
+        .post(`/api/products/create/`, {})
+
+        
+        dispatch({
+            type: PRODUCT_CREATE_SUCCESS,
+            payload:data,
+        })
+
+
+        
+    }catch(error){
+        dispatch({
+            type: PRODUCT_CREATE_FAIL,
             payload :error.response && error.response.data.detail
             ? error.response.data.detail
             : error.message,
