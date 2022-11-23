@@ -35,6 +35,7 @@ function App() {
             <Route index path='/admin/productlist' element={<ProductListScreen />} />
             <Route path='/admin/product/:id/edit' element={<ProductEditScreen />} />
             <Route path='/product/:id' element={<ProductScreen />} />
+            <Route path='/admin/user/:id/edit' element={<UserEditScreen />} />
             <Route path='/cart/:id' element={<CartScreen en />} />
             <Route path='/cart' element={<CartScreen en />} />
           </Routes>

@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import thunk from 'redux-thunk'
-import { productListReducers, productDetailsReducer , productDeleteReducer ,productCreateReducer } from './reducers/productReducers'
+import { productListReducers, productDetailsReducer , productDeleteReducer ,productCreateReducer, productUpdateReducer } from './reducers/productReducers'
 import { cartReducers } from './reducers/cartReducers'
 import { userLoginReducers, userRegisterReducers, userDetailsReducers, userUpdateProfileReducers , userListReducer,userDeleteReducer ,userUpdateReducer} from './reducers/userReduser'
 import { orderCreateReducer,orderDetailsReducer,orderPayReducer, orderListMyReducer  } from './reducers/orderReducers'
@@ -22,6 +22,7 @@ const reducer = combineReducers({
     userDelete :userDeleteReducer,
     userUpdate : userUpdateReducer,
     productCreate: productCreateReducer,
+    productUdpate: productUpdateReducer,
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?
