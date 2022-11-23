@@ -28,7 +28,7 @@ function UserListScreen() {
         }else{
              navigate('/login')
         }
-    },[dispatch,successDelete ])
+    },[dispatch,successDelete  , userInfo])
 
     const deleteHandler = (id) => {
 

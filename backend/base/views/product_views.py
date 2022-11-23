@@ -1,5 +1,5 @@
 from base.models import Product
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from base.serializer import ProductSerializer
@@ -21,4 +21,16 @@ def getProduct(request, pk):
     serializer = ProductSerializer(product, many = False)
     
     return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def deleteProduct(request, pk):
+    product = Product.objects.get(_id=pk)
+    product.delete()
+    serializer = ProductSerializer(product, many = False)
+
+    
+    return Response('Product Deleted')
+    
     
