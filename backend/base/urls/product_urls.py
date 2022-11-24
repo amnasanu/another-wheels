@@ -8,7 +8,7 @@ urlpatterns=[
      path('<str:pk>/',views.getProduct, name="product"),
      path('delete/<str:pk>/',views.deleteProduct, name="product-delete"),
      path('update/<str:pk>/',views.updateProduct, name="product-update"),
-
+     path('<str:pk>/reviews/',views.createProductReview, name='create-review'),
 
 
 ]
