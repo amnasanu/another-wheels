@@ -3,6 +3,7 @@ import React from 'react'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 // import { Link } from 'react-router-dom'
+import SearchBox from '../components/SearchBox'
 import { logout } from '../actions/userAction'
 
 function Header() {
@@ -23,8 +24,9 @@ function Header() {
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
+            <SearchBox/>
             <Nav
-              className="me-auto my-2 my-lg-0"
+              className="ms-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll> 
               <LinkContainer to="/Cart">
