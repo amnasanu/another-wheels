@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
 import Loding from '../components/Loadar'
+import  ProductCarousel  from '../components/ProductCarousel'
 import { useNavigate , useSearchParams} from 'react-router-dom'
 import Message from '../components/Messages'
 import Paginate from '../components/Paginate'
@@ -24,6 +25,7 @@ function HomeScreen() {
 
   return (
     <div>
+      {!keyword &&   <ProductCarousel/> }
       <h1>Latest Product</h1>
       {loading ? <Loding />
         : error ? <Message variant='danger'>{error}</Message>
