@@ -11,7 +11,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
 
 
-function ProductScreen(history) {
+function ProductScreen() {
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
@@ -131,7 +131,7 @@ function ProductScreen(history) {
                         )}
 
                         <ListGroup.Item>
-                          <Button onClick={addToCartHandler} className='btn-block' disabled={product.countInStock == 0} type='button'>Add to Cart</Button>
+                          <Button onClick={addToCartHandler} className='btn-block' disabled={product.countInStock === 0} type='button'>Add to Cart</Button>
                         </ListGroup.Item>
                       </ListGroup>
                     </Card>

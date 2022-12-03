@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6p69d#f087dcuxwq2(v_h()-c)uc)_+yw4=6@$yi(=ravo#b@4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','ecart.herokuapp.com']
 
 
 # Application definition
@@ -43,14 +43,15 @@ INSTALLED_APPS = [
     # thired party apps
     'rest_framework',
     'corsheaders',
+    'storages'
 ]
 
 MIDDLEWARE = [
     # Thired party middleware
     'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
-
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -85,8 +86,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME'  :'ecart',
+       'USER': 'ecart',
+       'PASSWORD': 'amnasanu',
+       'HOST': 'ecart-identifier.clohfk3pcvfa.ap-northeast-1.rds.amazonaws.com',
+       'PORT': 5432,
     }
 }
 
@@ -133,7 +138,8 @@ STATICFILES_DIRS = [
     BASE_DIR /'frondend/build/static'
 ]
 
-MEDIA_ROOT = 'static/images'
+MEDIA_ROOT = BASE_DIR / 'static/images'
+STATIC_ROOT=BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -183,3 +189,16 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_ACCESS_KEY_ID = 'AKIA3TIJL7MOQ7WQRXO2 '
+AWS_ACCESS_KEY_ID = 'AKIA3TIJL7MOQ7WQRXO2 '
+AWS_SECRET_ACCESS_KEY= '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'
+AWS_STORAGE_BUCKET_NAME= 'e-cart'
+AWS_QUERYSTRING_AUTH=False
+
+
+
+if os.getcwd() == '/app':
+    DEBUG = False
