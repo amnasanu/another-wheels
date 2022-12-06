@@ -1,0 +1,10 @@
+boto3
+django-cors-headers
+django-rest-framework
+django-storages
+djangorestframework-simplejwt
+gunicorn
+pillow
+pip-chill
+psycopg2
+whitenoise
