@@ -84,14 +84,17 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+
+
 DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME'  :'ecart',
-       'USER': 'ecart',
-       'PASSWORD': 'amnasanu',
-       'HOST': 'ecart-identifier.clohfk3pcvfa.ap-northeast-1.rds.amazonaws.com',
-       'PORT': 5432,
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'ecartwebsite',
+    'USER': 'ecartwebsite',
+    'PASSWORD': 'ecartwebsite',
+    'HOST': 'ecartwebsite.cspkw0mdzjni.ap-northeast-1.rds.amazonaws.com',
+    'PORT': 5432,
     }
 }
 
@@ -192,10 +195,10 @@ SIMPLE_JWT = {
 
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS_S3_ACCESS_KEY_ID = 'AKIA3TIJL7MOQ7WQRXO2 '
-AWS_ACCESS_KEY_ID = 'AKIA3TIJL7MOQ7WQRXO2 '
-AWS_SECRET_ACCESS_KEY= '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'
-AWS_STORAGE_BUCKET_NAME= 'e-cart'
+AWS_S3_ACCESS_KEY_ID = 'AKIAUHMTEUDUQJXOUR53 '
+AWS_ACCESS_KEY_ID = 'AKIAUHMTEUDUQJXOUR53 '
+AWS_SECRET_ACCESS_KEY= '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'
+AWS_STORAGE_BUCKET_NAME= 'mywebsiteecart'
 AWS_QUERYSTRING_AUTH=False
 
 
