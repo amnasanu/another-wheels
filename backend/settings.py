@@ -198,17 +198,20 @@ SIMPLE_JWT = {
 
 
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIAVYWOQWTMBTEC4JXG'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAVYWOQWTMBWQ5GY5A'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME ='e-cartwebsite'
+AWS_S3_REGION_NAME = 'us-east-1'
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 if os.getcwd() == '/app':
