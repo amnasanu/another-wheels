@@ -20,7 +20,8 @@ function Header() {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container fluid>
           <LinkContainer to ="/">
-          <Navbar.Brand >Wheelz</Navbar.Brand>
+          <Navbar.Brand><span style={{textTransform:"lowercase",fontSize:"26px"}}>i</span ><span style={{textTransform:"initial" ,fontSize:"26px"}}>Store</span></Navbar.Brand>
+
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">

@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
   }
   
   .login-card {
@@ -20,16 +19,15 @@
   }
   
   .login-button {
-    margin-top: 20px;
-    width: 100%;
-    height: 50px;
-    font-size: 18px;
-    border-radius: 25px;
-    background-color: #007bff;
+    margin-top: 40px !important;
+    width: 100% !important;
+    height: 50px !important;
+    font-size: 18px !important;
+    border-radius: 25px !important;
+    background-color: #0d2742 !important;
     border: none;
   }
   
   .login-button:hover {
-    background-color: #0069d9;
+    background-color: #03162b !important;
   }
-  

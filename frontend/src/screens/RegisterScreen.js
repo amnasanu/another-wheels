@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container } from 'react-bootstrap'
 import Loader from '../components/Loadar'
 import Message from '../components/Messages'
 import FormContainer from '../components/FormContainer'
@@ -41,70 +41,74 @@ function RegisterScreen({ history }) {
   }
 
   return (
-    <FormContainer>
-      <h1>Sign Up</h1>
-      {message && <Message variant='danger'>{message}</Message>}
-      {loading && <Loader />}
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='name'>
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            required
-            type='name'
-            placeholder='Enter Name'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            required
-            type='email'
-            placeholder='Enter Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+    <div className='form-container' >
+      <FormContainer >
+        <div className='form-cover'>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            required
-            type='password'
-            placeholder='Enter Password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+          <h1 className='text-center'>Sign Up</h1>
+          {message && <Message variant='danger'>{message}</Message>}
+          {loading && <Loader />}
+          <Form onSubmit={submitHandler} className='form-signup'>
+            <Form.Group controlId='name'>
 
-        <Form.Group controlId='passwordConfirm'>
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            required
-            type='password'
-            placeholder='Confirm Password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Button type='submit' variant='primary' className='btn-block'>
-          Register
-        </Button>
-      </Form>
+              <Form.Control
+                required
+                type='name'
+                placeholder='Enter Name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='email'>
+              <Form.Control
+                required
+                type='email'
+                placeholder='Enter Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
 
-      <Row className='py-3'>
-        <Col>
-          Have an account?{' '}
-          <Link
-            to={redirect ? `/login?redirect=${redirect}` : '/login'}
-            className='text-primary'
-          >
-            Sign In
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+            <Form.Group controlId='password'>
+
+              <Form.Control
+                required
+                type='password'
+                placeholder='Enter Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId='passwordConfirm'>
+              <Form.Control
+                required
+                type='password'
+                placeholder='Confirm Password'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Button type='submit' variant='primary' className='signup-btn btn-block text-center'>
+              Register
+            </Button>
+          </Form>
+
+          <Row className='py-3 text-center'>
+            <Col>
+              Have an account?{' '}
+              <Link
+                to={redirect ? `/login?redirect=${redirect}` : '/login'}
+                className='text-primary'
+              >
+                Sign In
+              </Link>
+            </Col>
+          </Row>
+        </div>
+      </FormContainer>
+
+    </div>
   )
 }
 

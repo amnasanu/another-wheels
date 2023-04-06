@@ -51,6 +51,7 @@ function ProductEditScreen() {
                  setCountInStock(product.countInStock)
                  setDescription(product.description)
                }
+
       
 
         }
@@ -99,6 +100,8 @@ function ProductEditScreen() {
         }
     }
 
+
+
   return (
     <div>
         <Link to ='/admin/productlist'>
@@ -111,12 +114,12 @@ function ProductEditScreen() {
                   <Form onSubmit = {submitHandler}>
                   <Form.Group controlId = 'name'>
                               <Form.Label>Name</Form.Label>
-                              <Form.Control name='name'  type='name' placeholder = 'Enter Name' value={name} onChange={(e) => setName(e.target.value)}></Form.Control>
+                              <Form.Control name='name'  type='text' placeholder = 'Enter Name' value={name} onChange={(e) => setName(e.target.value)}></Form.Control>
                   </Form.Group>
 
                   <Form.Group controlId = 'price'>
                               <Form.Label>Price</Form.Label>
-                              <Form.Control name='price'  type='number' placeholder = 'Enter Price' value={price} onChange={(e) => setName(e.target.value)}></Form.Control>
+                              <Form.Control name='price'  type='number' placeholder = 'Enter Price' value={price} onChange={(e) => setPrice(e.target.value)}></Form.Control>
                   </Form.Group>
 
                   <Form.Group controlId='image'>
@@ -150,8 +153,9 @@ function ProductEditScreen() {
                               <Form.Label>Description</Form.Label>
                               <Form.Control name='description'  type='text' placeholder = 'Enter Description' value={description} onChange={(e) => setDescription(e.target.value)}></Form.Control>
                   </Form.Group>
-      
-                  <Button type='submit' variant = 'primary'>Update</Button>
+                  <Form.Group className='my-3 text-center'>
+                  <Button  type='submit' variant = 'primary'>Update</Button>
+                 </Form.Group>
                   </Form>
         
         </FormContainer>

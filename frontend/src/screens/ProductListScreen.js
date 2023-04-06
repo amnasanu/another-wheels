@@ -57,14 +57,16 @@ function ProductListScreen() {
         dispatch(createProduct())
     }
 
+
+
   return (
     <div>
-        <Row className = 'align-items-center'>
+        <Row>
             <Col>
             <h1>Products</h1>
             </Col>
-            <Col className='right'>
-                <Button className='my-3' onClick = {createProductHandler}>
+            <Col className='right'  >
+                <Button style={{ float: "right" }} className='my-3 float-right' onClick = {createProductHandler}>
                     <i className = 'fas fa-plus' ></i> Create Product
                 </Button>
             </Col>

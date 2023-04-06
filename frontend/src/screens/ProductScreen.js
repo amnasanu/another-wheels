@@ -42,6 +42,7 @@ function ProductScreen() {
     dispatch(listProductDetails(match.id))
   }, [dispatch, match])
 
+
   const addToCartHandler = () => {
     navigate(`/cart/${match.id}?qty=${qty}`);
   }
@@ -56,9 +57,23 @@ function ProductScreen() {
     ))
 }
 
+const styles = {
+  btn_cover:{
+    margin:"50px",
+  },
+  btn:{
+    textDecoration:'none',
+    fontWeight:"600"
+  }
+}
+
+
+
   return (
     <div>
-      <Link to='/' className='btn btn-light my-3'>Go Back</Link>
+      <div style={styles.btn_cover}>
+      <Link to='/' style={styles.btn} >Go Back</Link> 
+      </div>
       {
         loading ?
           <Loader />
@@ -218,3 +233,5 @@ function ProductScreen() {
 }
 
 export default ProductScreen
+
+// nthan add to cart button kazinjitte kore hight verunille 

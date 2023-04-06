@@ -26,12 +26,13 @@ function ProductCarousel() {
                             <Link to={`/product/${product._id}`}>
                                 <Image src={product.image} alt={product.name} fluid />
                                 <Carousel.Caption className='carousel.caption'>
-                                    <h4>{product.name} (Rs:{product.price})</h4>
+                                    <h4 style={{marginBottom:"15px"}}> most rated products</h4> 
                                 </Carousel.Caption>
                             </Link>
                         </Carousel.Item>
                     ))}
                 </Carousel>
+                // ippolo
             )
 
     )

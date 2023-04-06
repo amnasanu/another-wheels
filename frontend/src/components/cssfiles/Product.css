@@ -1,0 +1,45 @@
+.card {
+    height:550px !important ;
+    border-radius: 7px;
+  }
+
+  
+  .productImage {
+    height: 100%;
+    object-fit: cover;
+    width: 200px;
+  }
+  
+  .Card {
+    height: 100%;
+  }
+  
+  .card-title {
+    max-height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .card-title>h4{
+    margin: 20px 0px 0px 0px;
+  }
+
+  .prod-price{
+    margin-top: 15px;
+  }
+
+  .prod-price>h2{
+    font-weight: 900;
+}
+
+  .card-text {
+    max-height: 3.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+
+
+  

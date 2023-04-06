@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button, Row, Col, Card } from 'react-bootstrap';
 import Loader from '../components/Loadar';
 import Message from '../components/Messages';
-import FormContainer from '../components/FormContainer';
 import { login } from '../actions/userAction';
 
 import './css/LoginScreen.css';
@@ -50,7 +49,7 @@ function LoginScreen({ history}) {
             <Form.Control type='password' placeholder='Enter Password' value={password} onChange={(e) => setPassword(e.target.value)}></Form.Control>
           </Form.Group>
 
-          <Button type='submit' variant='primary' className="login-button">Sign In</Button>
+          <Button type='submit' className="login-button">Sign In</Button>
         </Form>
         <Row className='py-3'>
           <Col>
